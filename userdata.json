@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "email": "INSERT EMAIL HERE",
+    "password": "INSERT PASSWORD HERE",
+    "apikey": "Insert APIKEY Here"
+  },
+  {
+    "id": 2,
+    "email": "INSERT EMAIL HERE",
+    "password": "INSERT PASSWORD HERE",
+    "apikey": "Insert APIKEY Here"
+  },
+  {
+    "id": 3,
+    "email": "INSERT EMAIL HERE",
+    "password": "INSERT PASSWORD HERE",
+    "apikey": "Insert APIKEY Here"
+  }
+]

@@ -165,16 +165,17 @@ if (userData.length === 0) {
           instance_id: instance_id,
         });
 
-        // Pasar el logger a la función para registrar mensajes desde dentro
+        // Pasar el logger y account.id a la función para registrar mensajes desde dentro
         connectWebSocket(
           user_id,
           access_token,
           instanceProxy,
           instance_id,
           logger,
-          proxies // Pasar la lista de proxies para modificar si es necesario
+          proxies, // Pasar la lista de proxies para modificar si es necesario
+          account.id // Pasar el ID de la cuenta
         ).catch((err) => {
-          logger.error(`Instance ${instance_id}: ${err.message}`);
+          logger.error(`Instance ${instance_id}: ${err.message} - [Account ${account.id}]`);
         });
       }
     } catch (error) {

@@ -13,6 +13,9 @@ const {
   getPublicIP,
 } = require('./scripts/apis');
 
+// Función de sleep para demoras
+const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
 let proxies = fs.readFileSync('proxies.txt', 'utf-8').split('\n').filter(Boolean);
 const userData = JSON.parse(fs.readFileSync('userdata.json', 'utf-8'));
 
@@ -148,7 +151,7 @@ if (userData.length === 0) {
       const personalCode = await getPersonalCode(user_id, access_token, account, loginProxy);
       logger.info(`🔑 Personal code obtained: ${personalCode}`);
 
-      // Conectar instancias
+      // Conectar instancias con una demora de 2 segundos entre cada una
       for (let i = 0; i < instancesPerAccount; i++) {
         const { proxy: instanceProxy, proxyId: instanceProxyId } = workingProxies[i];
         logger.info(
@@ -165,7 +168,7 @@ if (userData.length === 0) {
           instance_id: instance_id,
         });
 
-        // Pasar el logger y account.id a la función para registrar mensajes desde dentro
+        // Iniciar la conexión WebSocket
         connectWebSocket(
           user_id,
           access_token,
@@ -177,6 +180,9 @@ if (userData.length === 0) {
         ).catch((err) => {
           logger.error(`Instance ${instance_id}: ${err.message} - [Account ${account.id}]`);
         });
+
+        // Esperar 5 segundos antes de iniciar la siguiente conexión
+        await sleep(5000);
       }
     } catch (error) {
       logger.error(`Error with account ${account.email}: ${error.message}`);

@@ -5,7 +5,10 @@
     "console-clear": "^1.1.1",
     "figlet": "^1.8.0",
     "https-proxy-agent": "^7.0.5",
+    "p-limit": "^3.1.0",
+    "promise-limit": "^2.7.0",
     "readline-sync": "^1.4.10",
+    "socks-proxy-agent": "^5.0.1",
     "winston": "^3.16.0",
     "ws": "^8.18.0"
   }

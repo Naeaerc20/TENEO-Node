@@ -1,10 +1,22 @@
 {
+  "name": "TENEO-Node",
+  "version": "1.0.0",
+  "description": "Teneo Node Automatized Tool",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "aggregate": "node utils/add_data.js",
+    "proxy": "nano utils/default_proxies.txt",
+    "converter": "node utils/converter.js"
+  },
   "dependencies": {
     "axios": "^1.7.7",
+    "bestcaptchasolver": "^1.1.6",
     "colors": "^1.4.0",
     "console-clear": "^1.1.1",
     "figlet": "^1.8.0",
     "https-proxy-agent": "^7.0.5",
+    "inquirer": "^8.2.4",
     "p-limit": "^3.1.0",
     "promise-limit": "^2.7.0",
     "readline-sync": "^1.4.10",
